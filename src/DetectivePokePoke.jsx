@@ -59,42 +59,41 @@ export default function DetectivePokePoke() {
   
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-pink-100 p-6">
-      <div className="w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-6 border border-white/40">
+    <div className="min-h-screen flex items-center justify-center bg-snoblue p-6">
+      <div className="w-full max-w-md bg-snobelly rounded-2xl shadow-xl p-6 border border-white/40">
   
-        <h1 className="text-3xl font-bold text-center text-blue-800 mb-2">
+        <h1 className="text-3xl font-bold text-center text-snobrown mb-2">
           Detective PokePoke 🔍
         </h1>
-        <p className="text-center text-sm text-gray-600 mb-4">
-          Click where each card ends up <span className="font-semibold">after the shuffle</span> ✨
+        <p className="text-center text-sm text-snobrown/80 mb-4">
+          Choose where each card ends up after the shuffle ✨
         </p>
   
         <div className="text-center mb-4">
-            <img
-                src={snorlax}
-                alt="Snorlax"
-                className="mx-auto w-24 h-auto drop-shadow-md animate-bounce-slow"
-            />
-            <p className="text-xs text-gray-500 mt-1">Snorlax is observing quietly... zzz</p>
+          <img
+            src={snorlax}
+            alt="Snorlax"
+            className="mx-auto w-24 h-auto drop-shadow-md animate-bounce-slow"
+          />
+          <p className="text-xs text-snobrown/60 mt-1">Snorlax is guarding the data...</p>
         </div>
-
   
         <div className="space-y-3">
           {[0, 1, 2, 3, 4].map((row) => (
             <div key={row} className="flex items-center gap-2 justify-center">
-              <span className="w-16 text-sm text-gray-500">Slot {row + 1}:</span>
+              <span className="w-16 text-sm text-snobrown/70">Slot {row + 1}:</span>
               {[1, 2, 3, 4, 5].map((val) => (
                 <button
                   key={val}
                   onClick={() => handleSelect(row, val)}
                   disabled={selection.includes(val) && selection[row] !== val}
-                  className={`w-12 h-12 rounded-lg text-lg font-semibold border shadow-sm transition 
+                  className={`w-12 h-12 rounded-lg text-lg font-semibold border shadow-sm transition
                     ${
                       selection[row] === val
-                        ? "bg-blue-200 text-blue-900 shadow-inner"
+                        ? "bg-snoblue text-white shadow-inner"
                         : selection.includes(val)
-                        ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                        : "bg-white text-gray-700 hover:bg-blue-100"
+                        ? "bg-snobelly/60 text-snobrown/40 cursor-not-allowed"
+                        : "bg-white text-snobrown hover:bg-snoblue/20"
                     }`}
                 >
                   {val}
@@ -104,39 +103,16 @@ export default function DetectivePokePoke() {
           ))}
         </div>
   
-        <div className="flex gap-3 justify-center mt-6">
-            <button
-                onClick={handleSyncToSheet}
-                className="bg-yellow-200 hover:bg-yellow-300 text-yellow-900 px-4 py-2 rounded-lg shadow transition"
-                >
-                Sync to Sheet
-            </button>
-
+        <div className="flex justify-center mt-6">
           <button
-            onClick={handleSave}
-            className="bg-green-200 hover:bg-green-300 text-green-900 px-4 py-2 rounded-lg shadow-sm transition"
+            onClick={handleSyncToSheet}
+            className="bg-snobrown hover:bg-snobrown/80 text-white px-6 py-2 rounded-xl shadow transition"
           >
-            Save Shuffle
-          </button>
-          <button
-            onClick={handleExportCSV}
-            className="bg-blue-200 hover:bg-blue-300 text-blue-900 px-4 py-2 rounded-lg shadow-sm transition"
-          >
-            Export CSV
+            Sync to Sheet
           </button>
         </div>
-  
-        <div className="mt-6">
-          <h2 className="text-lg font-semibold mb-2 text-gray-800">Saved Entries</h2>
-          <ul className="list-disc pl-6 text-sm text-gray-700 space-y-1 max-h-32 overflow-auto">
-            {entries.map((entry, idx) => (
-              <li key={idx}>#{idx + 1}: {entry.join(" ")}</li>
-            ))}
-          </ul>
-        </div>
-  
       </div>
     </div>
-  );
+  );  
   
 }
