@@ -38,7 +38,7 @@ export default function DetectivePokePoke() {
   };
 
   const handleSyncToSheet = async () => {
-    const webhookUrl = "https://script.google.com/macros/s/AKfycbwl6ouFT2xpliJWGfA5dytmktF6g8Vbthxp01rZ5f63pvsOM_ac_QmCfS_VredooYPd/exec"; // 👈 paste it!
+    const webhookUrl = "https://pokeproxy.asahifactory.workers.dev/"; // 👈 paste it!
     if (selection.includes(null)) {
       alert("Please complete all selections before syncing.");
       return;
